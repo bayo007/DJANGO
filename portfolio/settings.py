@@ -26,9 +26,9 @@ SECRET_KEY = 'django-insecure-l$_2gg#w7=f5kne9*)6%_@q=lvm7&eh9w0futkf8!ik7q_=0+p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+ALLOWED_HOSTS = ['*']   
 
 # Application definition
 
@@ -56,7 +56,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'portfolio.urls'
+#ROOT_URLCONF = 'portfolio.urls'
+ROOT_URLCONF = 'test_project.urls'
 
 TEMPLATES = [
     {
@@ -73,16 +74,24 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'portfolio.wsgi.application'
-#WSGI_APPLICATION = 'api.wsgi.app'
+WSGI_APPLICATION = 'test_project.wsgi.application'
+#WSGI_APPLICATION = 'api.wsgi.app'  WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR / 'db.sqlite3'),
+#    }
+#}
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR / 'db.sqlite3'),
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -123,17 +132,17 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATIC_DIRS = [ os.path.join(BASE_DIR / 'static') ]
+STATIC_DIRS = [ os.path.join(BASE_DIR, '/static') ]
 
 #STATICFILES_DIRS = [ os.path.join(BASE_DIR / 'static') ]
 
-STATIC_ROOT = os.path.join(BASE_DIR / 'assets')
+STATIC_ROOT = os.path.join(BASE_DIR, '/assets')
 
 
 
 MEDIA_URL = 'media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR / 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, '/media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
